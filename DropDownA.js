@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+// <reference types="cypress" />
 
 describe('DropDown', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -27,21 +27,20 @@ describe('DropDown', () => {
         cy.get('.card-body.myTimesheetCardBody').find('div[class="form-group row"]').get('div[class="col-sm-9"]').click()
         .type('Functional Testing on new Build X5.1.0.10')
         cy.get('input[type="submit"]').click()
-        cy.wait(1000)
-        cy.get('.card-body.myTimesheetCardBody').find('[name="ctl00$ContentPlaceHolder1$ddProjects"]').select("Avoke").should('have.value',98)
-        cy.wait(1000)
-        cy.get('div[class="container-fluid"]').find('#ctl00_ContentPlaceHolder1_ddPhase').select("QA - Smoke Testing")
-        cy.get('#ctl00_ContentPlaceHolder1_ddEntryHours').select("2")
-        cy.get('#ctl00_ContentPlaceHolder1_txtDescription').clear().type('Smoke testing on Avoke browser')
-        cy.get('input[type="submit"]').click()
         cy.wait(2000)
+        // cy.get('i[class="fa fa-sign-out fa-icon"]').click()
+        // cy.get('.card-body.myTimesheetCardBody').find('[name="ctl00$ContentPlaceHolder1$ddProjects"]').select("Avoke").should('have.value',98)
+        // cy.wait(1000)
+        // cy.get('div[class="container-fluid"]').find('#ctl00_ContentPlaceHolder1_ddPhase').select("QA - Smoke Testing")
+        // cy.get('#ctl00_ContentPlaceHolder1_ddEntryHours').select("2")
+        // cy.get('#ctl00_ContentPlaceHolder1_txtDescription').clear().type('Smoke testing on Avoke browser')
+        // cy.get('input[type="submit"]').click()
+        // cy.wait(2000)
         cy.get('i[class="fa fa-sign-out fa-icon"]').click()
     });
-    it('Information Delete', () => {
-        cy.get('#ctl00_ContentPlaceHolder1_gvTimesheet_ctl02_lbDelete').find('i[class="fa fa-trash-o secColor"]').click()
-        cy.wait(2000)
-        cy.get('i[class="fa fa-sign-out fa-icon"]').click()
-       
+
+    it('Delete Info', () => {
+        cy.get('#ctl00_ContentPlaceHolder1_gvTimesheet_ctl02_lbDelete').find('.fa fa-trash-o secColor').click()
     });
-    
-});
+
+})
